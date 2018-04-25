@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e0c96a59157435284040150920bd640" Name="Diagram1">
+        <EntityTypeShape EntityType="OnePlaceModel.ExternalService" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.Language" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.Project" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.ReleaseDate" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.Release" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.PorjectLangauge" Width="1.5" PointX="2.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.ReleaseChangeSet" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.ReleaseExternalService" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.ReleaseSitecorePackage" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.ReleaseTFSFilePath" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnePlaceModel.Status" Width="1.5" PointX="8.75" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="OnePlaceModel.FK_ReleaseExternalServices_ExternalServices" ManuallyRouted="false" />
+        <AssociationConnector Association="OnePlaceModel.FK_ReleaseDates_Releases" ManuallyRouted="false" />
+        <AssociationConnector Association="OnePlaceModel.FK_ReleaseChangeSets_Releases" ManuallyRouted="false" />
+        <AssociationConnector Association="OnePlaceModel.FK_ReleaseExternalServices_Releases" ManuallyRouted="false" />
+        <AssociationConnector Association="OnePlaceModel.FK_ReleaseSitecorePackages_Releases" ManuallyRouted="false" />
+        <AssociationConnector Association="OnePlaceModel.FK_ReleaseTFSFilePaths_Releases" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
