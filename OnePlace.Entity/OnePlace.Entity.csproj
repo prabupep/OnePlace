@@ -57,6 +57,9 @@
     <Compile Include="GetReleaseDetails_Result.cs">
       <DependentUpon>OnePlace.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetReleaseList_Result.cs">
+      <DependentUpon>OnePlace.tt</DependentUpon>
+    </Compile>
     <Compile Include="Language.cs">
       <DependentUpon>OnePlace.tt</DependentUpon>
     </Compile>

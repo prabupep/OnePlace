@@ -3,21 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Palce Release-Manager</title>
+    <title>One Palce</title>
 
     @Styles.Render("~/Content/css")
-    
-    @Scripts.Render("~/bundles/modernizr")
-
-    @Scripts.Render("~/bundles/angularJS")
-    @Scripts.Render("~/Scripts/Application-main")
-
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/angularJS")
     @Scripts.Render("~/Moment/moment")
-    
-    
+    @Scripts.Render("~/Scripts/Application-main")
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+
 </head>
 <body>
 
@@ -29,19 +27,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("OnePlace Release-Manager", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("OnePlace", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Deployment
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="active"><a href="/Release/List">Deployment Listt</a></li>
-                            <li><a href="/Release/Detail">Deployment Detail</a></li>
+                            <li ><a href="/Release/List">Deployment List</a></li>
+                            <li><a href="/Release/NewDeployment">New Deployment</a></li>
                             <li><a href="/Release/Calendar">Deployment Calendar</a></li>
                         </ul>
                     </li>
@@ -51,8 +49,9 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="active"><a href="/Setup/Project">Projects</a></li>
-                            <li><a href="/Setup/Thirdpartyservice">Third Party Services</a></li>
+                            <li ><a href="/Setup/Project">Projects</a></li>
+                            <li><a href="/Setup/Languages">Languages</a></li>
+                            <li><a href="/Setup/ThirdPartyService">Third Party Service  </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -64,7 +63,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - One Place Release-Manager</p>
+            <p>&copy; @DateTime.Now.Year - One Place</p>
         </footer>
     </div>
 

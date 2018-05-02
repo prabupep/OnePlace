@@ -1,16 +1,50 @@
-﻿
+﻿@Scripts.Render("~/application/release-list")
+</br>
+<div ng-controller="releaselist">
 
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-labe" for="title">Release Title</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" id="title" placeholder="Title" ng-model="releaseFilter.ReleaseTitle">
+        </div>
+        <label class="col-sm-2 col-form-labe" for="req-status">Status</label>
+        <div class="col-sm-2">
+            <select class="form-control" id="status-select" ng-model="releaseFilter.Status">
+                <option value="">All</option>
+                <option>Open</option>
+                <option>In Progress</option>
+                <option>Pending</option>
+                <option>Completed</option>
+                <option>Cancelled</option>
+            </select>
+        </div>
+        <label class="col-sm-2" for="region-select">Region</label>
+        <div class="col-sm-2">
+            <select class="form-control" id="region-select" ng-model="releaseFilter.Region">
+                <option value="">All</option>
+                <option value="NA">NA</option>
+                <option value="EU">EU</option>
+                <option value="APAC">APAC</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2" style="background-color:lavender;">Title</div>
+        <div class="col-sm-2" style="background-color:lavender;">Region</div>
+        <div class="col-sm-2" style="background-color:lavender;">Project</div>
+        <div class="col-sm-2" style="background-color:lavender;">Status</div>
+        <div class="col-sm-2" style="background-color:lavender;">Live</div>
+        <div class="col-sm-2" style="background-color:lavender;">Release Comment</div>
+    </div>
+    <div ng-repeat="release in releases |filter:releaseFilter">
+        <div class="form-group row">
+            <div class="col-sm-2" style="background-color:lavenderblush;">{{release.ReleaseTitle}}</div>
+            <div class="col-sm-2" style="background-color:lavenderblush;">{{release.Region}}</div>
+            <div class="col-sm-2" style="background-color:lavenderblush;">{{release.ProjectName}}</div>
+            <div class="col-sm-2" style="background-color:lavenderblush;">{{release.Status}}</div>
+            <div class="col-sm-2" style="background-color:lavenderblush;">{{release.LiveDate | date:"MM/dd/yyyy h:mma"}}</div>
+            <div class="col-sm-2" style="background-color:lavenderblush;">{{release.Comment}}</div>
 
+        </div>
 
-
-
-
-<div>
-    This is a release list page
-
-    This is the test page
-    
-    This is once again changed
-
-
-</div>
+    </div>

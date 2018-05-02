@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using OnePlace.Entity;
+using OnePlace.Web.Models;
 
 namespace OnePlace.Web.Controllers
 {
@@ -75,6 +76,8 @@ namespace OnePlace.Web.Controllers
         [ResponseType(typeof(Language))]
         public IHttpActionResult PostLanguage(Language language)
         {
+            language.LanguageID = CommonModel.GetNewGUIDIfEmpty(language.LanguageID);
+            //release = CommonModel.AssigneLoginInfo<Release>(release);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

@@ -31,6 +31,7 @@ namespace OnePlace.Entity
         public string DeploymentType { get; set; }
         public bool RequireBuild { get; set; }
         public string Status { get; set; }
+        public string Priority { get; set; }
         public string Notification { get; set; }
         public string Comment { get; set; }
         public string Reviewer { get; set; }

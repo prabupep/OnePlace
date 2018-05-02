@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using OnePlace.Entity;
 using System.Data.Entity.Core.Objects;
+using OnePlace.Web.Models;
 
 namespace OnePlace.Web.Controllers
 {
@@ -81,6 +82,7 @@ namespace OnePlace.Web.Controllers
         [ResponseType(typeof(Project))]
         public IHttpActionResult PostProject(Project project)
         {
+            project.ProjectID = CommonModel.GetNewGUIDIfEmpty(project.ProjectID);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

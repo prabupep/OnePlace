@@ -9,23 +9,19 @@
     var promise = $http.get(apiUrls.Setups.Languages);
     promise.then(function (data) {
         $scope.languages = data.data;
+        console.log('Result method')
     })
-
+    console.log('end of method')
 
 
     $scope.saveProject = function (projectItem) {
         var promise = $http.post(apiUrls.Setups.Projects, projectItem);
         promise.then(function (data) {
-
-//save multilanguage for project
-            //var promise = $http.post(apiUrls.Setups.ProjectLanguages, );
-            //promise.then(function (data) {
-            //    $scope.languages = data.data;
-            //})
-
             $scope.projects.push(data.data);
-
+            cleanFieldData();
+            alert("Project Information Saved Successfully");
         });
+
     };
     $scope.removeProject = function (selectedProject) {
         var promise = $http.delete(apiUrls.Setups.Projects, { params: { id: selectedProject.ProjectID } });
@@ -34,21 +30,24 @@
             $scope.projects.splice(index, 1);
             console.log("success");
         });
+    };
+    
+    var cleanFieldData = function () {
+        $scope.newProject = {
+            Name: '',
+            Region: '',
+            DPMID: '',
+            DefaultLanguageID: '',
+            IsMultilingual: false,
+            StagePreviewURL: '',
+            StageCDURL: '',
+            ProdPreviewURL: '',
+            ProdCDURL: '',
+            Comment: ''
+        }
     }
 
-
-    $scope.newProject = {
-        Name: '',
-        Region: '',
-        DPMID: '',
-        DefaultLanguageID: '',
-        IsMultilingual:false,
-        StagePreviewURL: '',
-        StageCDURL: '',
-        ProdPreviewURL: '',
-        ProdCDURL: '',
-        Comment: ''
-        
-   }
+// Initialize project
+    cleanFieldData();
 
 });

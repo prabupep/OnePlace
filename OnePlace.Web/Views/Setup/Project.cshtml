@@ -1,12 +1,13 @@
 ﻿@Scripts.Render("~/application/project-detail")
 </br>
+<h1>Project</h1>
 <div ng-controller="projectdetail">
     <div>
         <form calss="form-inline">
             <div class="form-group row">
                 <label class="col-sm-2" for="project-name">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="project-name" ng-model="newProject.Name"/>
+                    <input type="text" class="form-control" id="project-name" ng-model="newProject.Name" />
                 </div>
             </div>
             <div class="form-group row">
@@ -72,33 +73,29 @@
             <div class="form-group row">
                 <label class="col-sm-2" for="project-comment">Comment</label>
                 <div class="col-sm-10">
-                    <textarea  class="form-control" id="project-comment" ng-model="newProject.Comment"></textarea>
+                    <textarea class="form-control" id="project-comment" ng-model="newProject.Comment"></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary" ng-click="saveProject(newProject)">Save</button>
         </form>
         </br>
-        <div class="col-sm-2" style="background-color:lavender;">Name</div>
-        <div class="col-sm-2" style="background-color:lavender;">Region</div>
-        <div class="col-sm-2" style="background-color:lavender;">DPM</div>
-        <div class="col-sm-2" style="background-color:lavender;">Stage CD</div>
-        <div class="col-sm-2" style="background-color:lavender;">Live</div>
-        <div class="col-sm-2" style="background-color:lavender;">Delete</div>
-
-        <div ng-repeat="project in projects">
-            
-            <div class="col-sm-2" style="background-color:lavenderblush;">{{project.Name}}</div>
-            <div class="col-sm-2" style="background-color:lavenderblush;">{{project.Region}}</div>
-            <div class="col-sm-2" style="background-color:lavenderblush;">{{project.DPMID}}</div>
-            <div class="col-sm-2" style="background-color:lavenderblush;">{{project.StageCDURL}}</div>
-            <div class="col-sm-2" style="background-color:lavenderblush;">{{project.ProdCDURL}}</div>
-            <div class="col-sm-2" style="background-color:lavenderblush;" ng-click="removeProject(project)"><span class="glyphicon glyphicon-remove"/></div>
+        <div class="form-group row">
+            <div class="col-sm-2" style="background-color:lavender;">Name</div>
+            <div class="col-sm-2" style="background-color:lavender;">Region</div>
+            <div class="col-sm-2" style="background-color:lavender;">DPM</div>
+            <div class="col-sm-2" style="background-color:lavender;">Stage CD</div>
+            <div class="col-sm-2" style="background-color:lavender;">Live</div>
+            <div class="col-sm-2" style="background-color:lavender;">Delete</div>
         </div>
+        <div ng-repeat="project in projects">
+            <div class="form-group row">
+                <div class="col-sm-2" style="background-color:lavenderblush;">{{project.Name}}</div>
+                <div class="col-sm-2" style="background-color:lavenderblush;">{{project.Region}}</div>
+                <div class="col-sm-2" style="background-color:lavenderblush;">{{project.DPMID}}</div>
+                <div class="col-sm-2" style="background-color:lavenderblush;">{{project.StageCDURL}}</div>
+                <div class="col-sm-2" style="background-color:lavenderblush;">{{project.ProdCDURL}}</div>
+                <div class="col-sm-2" style="background-color:lavenderblush;" ng-click="removeProject(project)"><span class="glyphicon glyphicon-remove" /></div>
+            </div>
+        </div>
+        </br>
     </div>
-    </br>
-
-
-
-  
-
-</div>

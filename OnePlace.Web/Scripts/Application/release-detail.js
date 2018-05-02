@@ -1,7 +1,7 @@
 ﻿//CONSTANTS
 LabelText = {
     add_new_project: 'New Project',
-    select_project : 'Select from list'
+    select_project: 'Select from list'
 };
 
 Files = [{ FilePath: '$:/EMS/test/test', Status: '' }, { FilePath: '$:/EMS/test/test', Status: '' }];
@@ -20,11 +20,17 @@ Release = {
     RequireBuild: false,
     Status: '',
     Comment: '',
-    Reviewer:''
+    Reviewer: ''
 }
 
 //NEW RELEASE REQUEST
 ngApp.controller('releasedetail', function ($scope, $http) {
+    //var promise = $http.get(apiUrls.Releases.Release);
+    //promise.then(function (data) {
+    //    console.log(data)
+    //});
+
+
     // CONSTANTS
     $scope.showaddproject = false;
     $scope.NewProject = LabelText.add_new_project;
@@ -40,26 +46,30 @@ ngApp.controller('releasedetail', function ($scope, $http) {
         promise.then(function (data) {
             var releaseID = data.data.ReleaseID;
             console.log('Release saved successfully')
-            alert("Your request submitted successfully");
-            $('.release-date:input:checked').each(function (index,item) {
+
+            var releaseDates = [];
+            $('.release-date:input:checked').each(function (index, item) {
                 var datePickerId = $(item).attr('data-date-picker-id');
                 var releaseDateDetail = {
                     ReleaseID: releaseID,
                     DateType: $(datePickerId).attr('data-type'),
                     StartDateTime: $(datePickerId).val(),
-                    Status:''
+                    Status: ''
                 }
-                var releaseDatePromise = $http.post(apiUrls.Releases.ReleaseDate, releaseDateDetail);
-                promise.then(function (data) {
-                    console.log("Release date succesfully inserted")
-                });
-
+                releaseDates.push(releaseDateDetail);
             });
+            var releaseDatePromise = $http.post(apiUrls.Releases.ReleaseDate, releaseDates);
+            promise.then(function (data) {
+                alert("Your request submitted successfully");
+                $scope.newRelease = {};
+                console.log("Release date succesfully inserted")
+            });
+
         });
     }
-   
 
-    
+
+
 
     var promise = $http.get(apiUrls.Setups.Projects);
     promise.then(function (data) {
@@ -79,13 +89,14 @@ ngApp.controller('releasedetail', function ($scope, $http) {
     }
 
     $scope.newRelease = {
-        
+
         ReleaseTitle: '',
         Region: '',
         ProjectID: '',
         DeploymentType: '',
         RequireBuild: false,
         Status: '',
+        Priority: '',
         Comment: '',
         Reviewer: '',
         Notification: ''

@@ -7,7 +7,8 @@ var apiUrls = {
         ReleaseTFSChangeSet: '',
         ReleaseSitecorePackages: '',
         ReleaseExternalServices: '',
-        ReleaseCalendar: '/api/CalendarAPI'
+        ReleaseCalendar: '/api/CalendarAPI',
+        ReleaseList: "/api/ReleaseListAPI"
     },
     Setups: {
         Projects: "/api/ProjectsAPI",

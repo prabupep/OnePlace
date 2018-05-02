@@ -36,6 +36,7 @@ namespace OnePlace.Web
                 , "~/Scripts/Application/main.js"));
 
             bundles.Add(new ScriptBundle("~/application/release-detail").Include("~/Scripts/Application/release-detail.js"));
+            bundles.Add(new ScriptBundle("~/application/release-list").Include("~/Scripts/Application/release-list.js"));
             bundles.Add(new ScriptBundle("~/application/project-detail").Include("~/Scripts/Application/projects.js"));
             bundles.Add(new ScriptBundle("~/application/setup-languages").Include("~/Scripts/Application/languages.js"));
             bundles.Add(new ScriptBundle("~/Moment/moment").Include("~/Scripts/Moment/moment.js"));

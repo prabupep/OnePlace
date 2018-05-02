@@ -18,7 +18,7 @@ namespace OnePlace.Web.Controllers
             return View();
         }
 
-        public ActionResult Detail()
+        public ActionResult NewDeployment()
         {
             return View();
         }

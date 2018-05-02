@@ -72,40 +72,50 @@ namespace OnePlace.Web.Controllers
 
         // POST: api/ReleaseDatesAPI
         [ResponseType(typeof(ReleaseDate))]
-        public IHttpActionResult PostReleaseDate(ReleaseDate releaseDate)
+        public IHttpActionResult PostReleaseDate(List<ReleaseDate> releaseDates)
         {
-            if (releaseDate.DateType == "KT")
+            foreach (ReleaseDate releaseDate in releaseDates)
             {
-                releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(14);
-                releaseDate.EndDateTime = releaseDate.StartDateTime;
-                releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(1);
-            }
-            else if (releaseDate.DateType == "PKG")
-            {
-                releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(8);
-                releaseDate.EndDateTime = releaseDate.StartDateTime;
-                releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(1);
+                if (releaseDate.DateType == "KT")
+                {
+                    //releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(14);
+                    releaseDate.EndDateTime = releaseDate.StartDateTime;
+                    releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(1);
+                }
+                else if (releaseDate.DateType == "PKG")
+                {
+                    //releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(8);
+                    releaseDate.EndDateTime = releaseDate.StartDateTime;
+                    releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(1);
 
-            }
-            else if (releaseDate.DateType == "PP")
-            {
-                releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(9);
-                releaseDate.EndDateTime = releaseDate.StartDateTime;
-                releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(6);
-            }
-            else if (releaseDate.DateType == "LIVE")
-            {
-                releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(11);
-                releaseDate.EndDateTime = releaseDate.StartDateTime;
-                releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(8);
-            }
+                }
+                else if (releaseDate.DateType == "PP")
+                {
+                    //releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(9);
+                    releaseDate.EndDateTime = releaseDate.StartDateTime;
+                    releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(6);
+                }
+                else if (releaseDate.DateType == "LIVE")
+                {
+                    //releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(11);
+                    releaseDate.EndDateTime = releaseDate.StartDateTime;
+                    releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(8);
+                }
+                else if (releaseDate.DateType == "DNS")
+                {
+                    //releaseDate.StartDateTime = releaseDate.StartDateTime.AddHours(11);
+                    releaseDate.EndDateTime = releaseDate.StartDateTime;
+                    releaseDate.EndDateTime = releaseDate.EndDateTime.AddHours(4);
+                }
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            db.ReleaseDates.Add(releaseDate);
+                db.ReleaseDates.Add(releaseDate);
+            }
+           
 
             try
             {
@@ -113,17 +123,18 @@ namespace OnePlace.Web.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ReleaseDateExists(releaseDate.ReleaseID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
+                //if (ReleaseDateExists(releaseDate.ReleaseID))
+                //{
+                //    return Conflict();
+                //}
+                //else
+                //{
+                //    throw;
+                //}
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = releaseDate.ReleaseID }, releaseDate);
+            return CreatedAtRoute("DefaultApi", new { id = Guid.Empty}, new ReleaseDate());
         }
 
         // DELETE: api/ReleaseDatesAPI/5

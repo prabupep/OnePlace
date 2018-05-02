@@ -43,5 +43,10 @@ namespace OnePlace.Entity
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReleaseDetails_Result>("GetReleaseDetails");
         }
+    
+        public virtual ObjectResult<GetReleaseList_Result> GetReleaseList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReleaseList_Result>("GetReleaseList");
+        }
     }
 }

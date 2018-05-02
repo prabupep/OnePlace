@@ -212,6 +212,7 @@
     <Compile Include="Controllers\ProjectsAPIController.cs" />
     <Compile Include="Controllers\ReleaseController.cs" />
     <Compile Include="Controllers\ReleaseDatesAPIController.cs" />
+    <Compile Include="Controllers\ReleaseListAPIController.cs" />
     <Compile Include="Controllers\ReleasesAPIController.cs" />
     <Compile Include="Controllers\SetupController.cs" />
     <Compile Include="Global.asax.cs">
@@ -258,10 +259,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Moment\moment.js" />
+    <Content Include="Scripts\Application\release-list.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Release\Detail.cshtml" />
+    <Content Include="Views\Release\NewDeployment.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
